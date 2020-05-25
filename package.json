@@ -1,0 +1,23 @@
+{
+  "name": "fitness",
+  "version": "1.0.0",
+  "description": "week-17 homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaolu119/fitness.git"
+  },
+  "author": "Xiaolu Sun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaolu119/fitness/issues"
+  },
+  "homepage": "https://github.com/xiaolu119/fitness#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.15"
+  }
+}
