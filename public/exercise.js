@@ -103,20 +103,26 @@ async function handleFormSubmit(event) {
   if (workoutType === "cardio") {
     workoutData.type = "cardio";
     workoutData.name = cardioNameInput.value.trim();
-    workoutData.distance = Number(distanceInput.value.trim());
     workoutData.duration = Number(durationInput.value.trim());
+    workoutData.weight = 0;
+    workoutData.reps = 0;
+    workoutData.sets =0;
+    workoutData.distance = Number(distanceInput.value.trim());
+  
   } else if (workoutType === "resistance") {
     workoutData.type = "resistance";
     workoutData.name = nameInput.value.trim();
-    workoutData.weight = Number(weightInput.value.trim());
-    workoutData.sets = Number(setsInput.value.trim());
-    workoutData.reps = Number(repsInput.value.trim());
     workoutData.duration = Number(resistanceDurationInput.value.trim());
+    workoutData.weight = Number(weightInput.value.trim());
+    workoutData.reps = Number(repsInput.value.trim());
+    workoutData.sets = Number(setsInput.value.trim());
+    workoutData.distance =0;
   }
-
+console.log("Workout data")
   await API.addExercise(workoutData);
-  clearInputs();
-  toast.classList.add("success");
+  console.log("After await")
+  //clearInputs();
+  //toast.classList.add("success");
 }
 
 function handleToastAnimationEnd() {
