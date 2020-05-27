@@ -99,7 +99,7 @@ async function handleFormSubmit(event) {
   event.preventDefault();
 
   let workoutData = {};
-
+  let total = 0;
   if (workoutType === "cardio") {
     workoutData.type = "cardio";
     workoutData.name = cardioNameInput.value.trim();
@@ -107,12 +107,14 @@ async function handleFormSubmit(event) {
     workoutData.weight = 0;
     workoutData.reps = 0;
     workoutData.sets =0;
+    workoutData.totalDuration += workoutData.duration; 
     workoutData.distance = Number(distanceInput.value.trim());
   
   } else if (workoutType === "resistance") {
     workoutData.type = "resistance";
     workoutData.name = nameInput.value.trim();
     workoutData.duration = Number(resistanceDurationInput.value.trim());
+    workoutData.totalDuration += workoutData.duration; 
     workoutData.weight = Number(weightInput.value.trim());
     workoutData.reps = Number(repsInput.value.trim());
     workoutData.sets = Number(setsInput.value.trim());
@@ -121,7 +123,7 @@ async function handleFormSubmit(event) {
 console.log("Workout data")
   await API.addExercise(workoutData);
   console.log("After await")
-  //clearInputs();
+  clearInputs();
   //toast.classList.add("success");
 }
 
@@ -150,6 +152,7 @@ if (completeButton) {
   completeButton.addEventListener("click", function (event) {
     shouldNavigateAway = true;
     handleFormSubmit(event);
+    // location.redirect("/");
   });
 }
 if (addButton) {
